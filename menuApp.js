@@ -1,12 +1,13 @@
 // Anne Edmondson
 // 2023-03-30-fe-mountain
+// Week 5 Coding Assignment: Menu Application
 
 /* I'm currently obsessed with the Wheel of Time fantasy series and am currently reading book 4 of 14. Please bear with my tie-in to the series. If you haven't read the books, an "Aes Sedai" is a type of witch and an "Ajah" is like the sorority or coven she belongs to. Each Ajah has a different color theme and a different mission in the series.*/
 
 // class created as blueprint for new Aes Sedai
 
-class AesSedai {
-    constructor(name, ajah) {
+/* class AesSedai {
+    constructor(name, nationality) {
         this.name = name
         this.nationality = nationality
     }
@@ -14,7 +15,7 @@ class AesSedai {
     describe() {
         return (`${this.name} Sedai's nationality is ${this.nationality}.`)
     }
-}
+} */
 // class created as blueprint for new Ajah
 
 class Ajah {
@@ -25,7 +26,7 @@ class Ajah {
 
 // method for adding a new Aes Sedai, throws error if user entry is not an instance of the AesSedai class
 
-    addAesSedai(aesSedai) {
+/*     addAesSedai(aesSedai) {
         if (aesSedai instanceof AesSedai) {
             this.aesSedais.push(aesSedai)
         } else {
@@ -35,9 +36,9 @@ class Ajah {
 
     describe() {
         return `The ${this.name} Ajah has ${this.aesSedais.length} Aes Sedai members.`
-    }
+    }*/
 } 
-
+ 
 // this class drives the application, contains the core features and methods of the application.
 
 class Menu {
@@ -61,10 +62,10 @@ class Menu {
                 case '2':
                     this.deleteAjah()
                     break
-                case '3':
+ /*                case '3':
                     this.viewAjah()
-                    break
-                case '4':
+                    break */
+                case '3':
                     this.viewAllAjahs()
                     break
                 default:
@@ -82,21 +83,20 @@ class Menu {
             -------------------
             1. Create a New Ajah
             2. Delete an Ajah
-            3. View an Ajah
-            4. View All Ajahs
+            3. View All Ajahs
         `)
     }
 
-    showSubMenu () {
+/*     showSubMenu (ajahInfo) {
         return prompt(`
             0. Return to Main Menu
             ----------------------    
             1. Create a New Aes Sedai
             2. Delete an Aes Sedai
             ----------------------
-            
+            ${ajahInfo}
         `)
-    }
+    } */
 
  // method for creating new Ajah   
     createAjah() {
@@ -105,7 +105,7 @@ class Menu {
     }
 
     //method for viewing details of each Ajah
-    viewAjah() {
+    /*viewAjah() {
         let i = prompt('Enter the index of the Ajah you want to view: ')
 
         // user input validation
@@ -115,20 +115,20 @@ class Menu {
             
  //   build list of all Aes Sedai           
             
-            for (let i = 0; i < this.chosenAjah.ajahs.length; i++) {
+ /*            for (let i = 0; i < this.chosenAjah.aesSedais.length; i++) {
                 description += i + ') ' + this.chosenAjah.aesSedais[i].name + ' - ' + this.chosenAjah.aesSedais[i].nationality + '\n'
-            }
+            } */
  // submenu of full menu           
-            let option = this.showSubMenu(description)
+  /*           let option = this.showSubMenu(description)
             switch (option) {
-                case '1' :
+                case '1':
                 this.createAesSedai()
                 break
-                case '2' :
+                case '2':
                 this.deleteAesSedai()
             }
         }
-    }
+    } */
  
   // iterates through array of Ajahs, displays name/color of each one
     viewAllAjahs() {   
@@ -149,21 +149,22 @@ class Menu {
         }
     }
 
-    createAesSedai() {
-        let name = prompt(`Enter the name of a new Aes Sedai:`)
-        let nationality = prompt(`Enter the nationality of your new Aes Sedai: `)
+     createAesSedai() {
+        let name = prompt(`Enter the name of a new Aes Sedai: `)
+        let nationality = prompt(`Enter the nationality of the new Aes Sedai: `)
 
-        this.chosenAjah.aesSedais.push(new AesSedai(name, nationality))
+        this.ajahs[i].aesSedais.push(new AesSedai(name, nationality))
     }
 
     deleteAesSedai() {
         let i = prompt(`Enter the index of the Aes Sedai to delete: `)
 
         // user input validation
-        if (i > -1 && i < this.chosenAjah.aesSedais.length) {
-            this.chosenAjah.aesSedais.splice(i, 1)
+        if (i > -1 && i < this.ca.aesSedais.length) {
+            this.ajahs.aesSedais.splice(i, 1)
         }
-    }
+    } 
 }
+
 let menu = new Menu()
 menu.start()
