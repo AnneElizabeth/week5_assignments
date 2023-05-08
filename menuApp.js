@@ -149,7 +149,7 @@ class Menu {
         }
     }
 
-     createAesSedai() {
+    /*  createAesSedai() {
         let name = prompt(`Enter the name of a new Aes Sedai: `)
         let nationality = prompt(`Enter the nationality of the new Aes Sedai: `)
 
@@ -163,7 +163,7 @@ class Menu {
         if (i > -1 && i < this.ca.aesSedais.length) {
             this.ajahs.aesSedais.splice(i, 1)
         }
-    } 
+    }  */
 }
 
 let menu = new Menu()
